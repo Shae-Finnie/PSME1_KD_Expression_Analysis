@@ -1,0 +1,11 @@
+# Data and reference files
+data/raw
+
+# Conda / Python
+__pycache__/
+*.pyc
+.snakemake/
+.conda/
+
+# OS
+.DS_Store
