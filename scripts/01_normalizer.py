@@ -8,7 +8,7 @@ import numpy as np
 from scipy import stats
 
 # 1. Load
-df = pd.read_csv("PSME1_vs_Scram.csv", index_col="ProteinID")
+df = pd.read_csv("data/raw/psme1_vs_scram.csv", index_col="ProteinID")
 sample_cols = df.columns.tolist()
 
 print(f"[1/5] Loaded: {df.shape[0]} proteins x {df.shape[1]} samples")
@@ -63,8 +63,8 @@ print(df_imputed.describe().round(2))
 # 5. Save outputs
 print("\n[5/5] Saving outputs...")
 
-df_imputed.to_csv("PSME1_vs_Scram_normalized.csv")
-print("      Saved: PSME1_vs_Scram_normalized.csv")
+df_imputed.to_csv("results/psme1_vs_scram_normalized.csv")
+print("      Saved: psme1_vs_scram_normalized.csv")
 
 # Per-sample QC stats for downstream review
 qc = pd.DataFrame({
@@ -74,6 +74,6 @@ qc = pd.DataFrame({
     "mean_final":           df_imputed.mean(),
     "sd_final":             df_imputed.std(),
 })
-qc.to_csv("QC_sample_stats.csv")
+qc.to_csv("results/QC_sample_stats.csv")
 print("      Saved: QC_sample_stats.csv")
 print("\nNormalization pipeline complete.")
